@@ -4624,8 +4624,6 @@ GameBoyCore.prototype.ROMLoad = function () {
 	for (var romIndex = 0; romIndex < maxLength; ++romIndex) {
 		this.ROM[romIndex] = (this.ROMImage.charCodeAt(romIndex) & 0xFF);
 	}
-	//set the flag for 'using breakpoint emulator'
-	this.ROM[0] = 1;
 	
 	romIndex = 0;
 	
@@ -4659,6 +4657,9 @@ GameBoyCore.prototype.ROMLoad = function () {
 			this.memory[romIndex] = this.ROM[romIndex];														//Load in the game ROM.
 		}
 	}
+	
+	//initialize the breakpoint byte
+	initBreakpointByte();
 	
 	this.ROMBankEdge = Math.floor(this.ROM.length / 0x4000);
 	

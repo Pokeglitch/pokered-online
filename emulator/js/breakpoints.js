@@ -16,11 +16,13 @@ var breakpoints = {
 	//unset the flag
 	1 : {
 		bank : 0,
-		count : 0x000D,
-		callback : function(){
-			gameboy.memory[0] = 0x01;
-		},
+		count : 0x0012,
+		callback : initBreakpointByte,
 	}
+}
+
+function initBreakpointByte(){
+	gameboy.memory[0] = 0x01;
 }
 
 function finishBreakpoint(){

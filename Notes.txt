@@ -1,0 +1,12 @@
+Potential Uses:
+-Link Battle/Trading
+-Pseudo In-game List of Linked Trainers
+-Real Time Clock
+-Randomizer
+-Synchronizing stats/party info with web viewer
+
+Todo:
+Use Breakpoint Name instead of bank and pointer, and then reference pokered.sym to determine the true breakpoint
+Use nodejs & weplay
+Easy way to auto load the rom data each time it is rebuilt
+Edit and build pokered from browser

@@ -133,7 +133,13 @@ function registerGUIEvents() {
 							if (this.readyState == 2) {
 								cout("file loaded.", 0);
 								try {
-									start(mainCanvas, this.result);
+									r = new Uint8Array(this.result);
+									ROM = []
+									for(var i=0;i<r.length;i++){
+										ROM.push( r[i] );
+									}
+									console.log(JSON.stringify(ROM));
+									//start(mainCanvas, this.result);
 								}
 								catch (error) {
 									alert(error.message + " file: " + error.fileName + " line: " + error.lineNumber);
@@ -143,7 +149,8 @@ function registerGUIEvents() {
 								cout("loading file, please wait...", 0);
 							}
 						}
-						binaryHandle.readAsBinaryString(this.files[this.files.length - 1]);
+						//binaryHandle.readAsBinaryString(this.files[this.files.length - 1]);
+						binaryHandle.readAsArrayBuffer(this.files[this.files.length - 1]);
 					}
 					catch (error) {
 						cout("Browser does not support the FileReader object, falling back to the non-standard File object access,", 2);
