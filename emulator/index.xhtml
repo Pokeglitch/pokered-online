@@ -38,6 +38,8 @@
                 <canvas id="mainCanvas"/>
                 <span id="title">GameBoy</span>
                 <span id="port_title">Online</span>
+				<input type='text' id='name' style='z-index:100;position:absolute;top:20%;height:20%;left:0px;width:100%;text-align:center;display:none'></input>
+				<button id='go' style='z-index:100;position:absolute;bottom:20%;left:0px;height:20%;width:100%;text-align:center;display:none' onclick="submitName()">Go</button>
             </div>
         </div>
         <div id="terminal" class="window">
@@ -208,8 +210,6 @@
         </ul>
         <div id="fullscreenContainer">
             <canvas id="fullscreen" class="maximum"/>
-        </div>	
-		<input type='text' id='name' style='position:absolute;top:10px;left:50%;margin-left:-100px;width:200px;visibility:hidden'></input>
-		<button id='go' style='position:absolute;top:30px;left:50%;margin-left:-100px;width:200px;visibility:hidden' onclick="submitName()">Go</button>
+        </div>
     </body>
 </html>

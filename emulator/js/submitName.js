@@ -73,7 +73,7 @@ function submitName(){
 		gameboy.memory[start++] = map[name.value.charAt(i)] || 0x7F;
 	}
 	gameboy.memory[start] = 0x50;
-	name.style.visibility='hidden';
-	document.getElementById('go').style.visibility = 'hidden';
+	name.style.display='none';
+	document.getElementById('go').style.display = 'none';
 	finishBreakpoint();
 }

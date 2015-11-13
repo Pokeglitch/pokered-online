@@ -5,12 +5,13 @@ var breakpoints = {
 		callback : function(){
 			e = document.getElementById('name');
 			e.value = ''
-			e.style.visibility="visible";
+			e.style.display="block";
 			l = 7;
 			if( gameboy.memory[0xD07D] == 2) l = 10;
 			e.setAttribute("maxlength", l )
-			e = document.getElementById('go');
-			e.style.visibility = 'visible';
+			g = document.getElementById('go');
+			g.style.display="block";
+			e.focus();
 		},
 	},
 	//unset the flag

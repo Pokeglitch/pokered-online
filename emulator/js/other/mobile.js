@@ -105,7 +105,7 @@ function windowingInitialize() {
 	mainCanvas = document.getElementById("mainCanvas");
   registerTouchEventShim();
   window.onunload = autoSave;
-  ("MozActivity" in window ? loadViaMozActivity : loadViaXHR)();
+  //("MozActivity" in window ? loadViaMozActivity : loadViaXHR)();
 }
 var DEBUG_MESSAGES = false;
 var DEBUG_WINDOWING = false;

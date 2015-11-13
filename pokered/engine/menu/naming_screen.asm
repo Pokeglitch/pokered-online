@@ -83,19 +83,18 @@ DisplayNameRaterScreen: ; 655c (1:655c)
 
 DisplayNamingScreen: ; 6596 (1:6596)
 	push hl
-	call UsingBreakpointEmulator
-	jr z,.notBreakpointEmulator
-	call WaitForBreakpointResponse
-	pop de
-	call CopyNameInput
-	jp .finish
-	
-.notBreakpointEmulator
 	ld hl, wd730
 	set 6, [hl]
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	call UpdateSprites
+	
+	call UsingBreakpointEmulator
+	jr z,.notBreakpointEmulator
+	call WaitForBreakpointResponse
+	jp .submitNickname
+	
+.notBreakpointEmulator
 	ld b, SET_PAL_GENERIC
 	call RunPaletteCommand
 	call LoadHpBarAndStatusTilePatterns
@@ -165,7 +164,9 @@ DisplayNamingScreen: ; 6596 (1:6596)
 
 .submitNickname
 	pop de
-	call CopyNameInput
+	ld hl, wcf4b
+	ld bc, NAME_LENGTH
+	call CopyData
 	call GBPalWhiteOutWithDelay3
 	call ClearScreen
 	call ClearSprites
@@ -175,7 +176,6 @@ DisplayNamingScreen: ; 6596 (1:6596)
 	ld [wAnimCounter], a
 	ld hl, wd730
 	res 6, [hl]
-.finish
 	ld a, [wIsInBattle]
 	and a
 	jp z, LoadTextBoxTilePatterns
@@ -517,8 +517,4 @@ NameTextString: ; 694d (1:694d)
 
 NicknameTextString: ; 6953 (1:6953)
 	db "NICKNAME?@"
-
-CopyNameInput:
-	ld hl, wcf4b
-	ld bc, NAME_LENGTH
-	jp CopyData
+	

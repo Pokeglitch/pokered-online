@@ -4,9 +4,18 @@ Potential Uses:
 -Real Time Clock
 -Randomizer
 -Synchronizing stats/party info with web viewer
+-Voice control
+-Easy testing/debugging by creating scripts to inject or read data (parties, enemy pokemon, etc)
 
 Todo:
+Easy functions for copying strings into a memory location
 Use Breakpoint Name instead of bank and pointer, and then reference pokered.sym to determine the true breakpoint
-Use nodejs & weplay
+Use nodejs, weplay, modify node gb emulator
+	-the breakpoints features gets loaded along with the ROM
+	-All data should have:
+		-breakpoints
+		-charmap
+		-init breakpoint function
+		-can load DOM into a specific DIV (id='interaction')
 Easy way to auto load the rom data each time it is rebuilt
 Edit and build pokered from browser
