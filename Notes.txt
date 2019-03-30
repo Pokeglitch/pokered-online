@@ -1,3 +1,30 @@
+
+- [weplay-web](https://github.com/guille/weplay-web) serves the HTML
+  pages and static assets to run the game. It also serves initial state
+  from Redis with the page for optimal performance.
+- [weplay-emulator](https://github.com/guille/weplay-emulator) runs an
+  emulator and broadcasts the image data from it with
+  [socket.io-emitter](https://github.com/learnboost/socket.io-emitter) to
+  the IO instance(s) that users are connected to.
+- [weplay-presence](https://github.com/guille/weplay-presence) notifies
+  all the IO instance(s) of the aggregate number of online users.
+
+## FAQ
+
+### How does this all work?
+
+The [weplay-emulator](https://github.com/guille/weplay-emulator) service
+runs a JavaScript-based
+[gameboy color emulator](http://github.com/guille/gameboy)
+that gets painted to an instance of
+[node-canvas](http://github.com/learnboost/node-canvas).
+
+
+Sound:
+http://stackoverflow.com/questions/8015702/how-to-play-audio-byte-array-not-file-with-javascript-in-a-browser
+http://binaryjs.com/
+
+
 Potential Uses:
 -Link Battle/Trading
 -Pseudo In-game List of Linked Trainers
@@ -8,14 +35,6 @@ Potential Uses:
 -Easy testing/debugging by creating scripts to inject or read data (parties, enemy pokemon, etc)
 
 Todo:
-Easy functions for copying strings into a memory location
-Use Breakpoint Name instead of bank and pointer, and then reference pokered.sym to determine the true breakpoint
 Use nodejs, weplay, modify node gb emulator
-	-the breakpoints features gets loaded along with the ROM
-	-All data should have:
-		-breakpoints
-		-charmap
-		-init breakpoint function
-		-can load DOM into a specific DIV (id='interaction')
 Easy way to auto load the rom data each time it is rebuilt
 Edit and build pokered from browser

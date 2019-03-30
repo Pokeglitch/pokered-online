@@ -19,6 +19,7 @@ WaitForBreakpointResponse::
 	bit 1,[hl]
 	jr z,.loop
 	pop hl
+BreakpointFinish:
 	ret
 
 

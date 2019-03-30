@@ -1,0 +1,23 @@
+body{
+	background:black;
+}
+
+#interaction, #mainCanvas{
+	position:absolute;
+	left:50%;
+	top:50%;
+}
+
+#interaction[data-scale='1'], #mainCanvas[data-scale='1']{
+	height : 144px;
+	margin-top:-72px;
+	width: 160px;
+	margin-left:-80px;
+}
+
+#interaction[data-scale='2'], #mainCanvas[data-scale='2']{
+	height : 288px;
+	margin-top:-144px;
+	width: 320px;
+	margin-left:-160px;
+}
